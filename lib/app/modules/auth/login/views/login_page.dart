@@ -1,6 +1,7 @@
 // Import libraries
 import 'package:flutter/material.dart';
 import 'package:job_dream/app/modules/auth/register/views/register_page.dart';
+import 'package:job_dream/app/modules/auth/util/views/forgot_password_page.dart';
 import 'package:job_dream/app/widgets/primary_button.dart';
 import 'package:job_dream/app/widgets/secondary_button.dart';
 
@@ -59,11 +60,21 @@ class _LoginPageState extends State<LoginPage> {
             ),
             const SizedBox(height: 25.0),
             // Row for 'Forgot Password' text
-            Container(
-              margin: const EdgeInsets.only(left: 250.0),
-              child: const Text(
-                'Forgot Password',
-                style: TextStyle(color: Color(0xFF96D8CC)),
+            TextButton(
+              onPressed: () {
+                // Navigate to the Forgot Password page
+               Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => ForgotPasswordPage()),
+                    );
+              },
+              child: Container(
+                margin: const EdgeInsets.only(left: 250.0),
+                child: const Text(
+                  'Forgot Password',
+                  style: TextStyle(color: Color(0xFF96D8CC)),
+                ),
               ),
             ),
             const SizedBox(height: 25.0),

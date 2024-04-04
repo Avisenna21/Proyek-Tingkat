@@ -83,7 +83,13 @@ class _RegisterPageState extends State<RegisterPage> {
 
             // ElevatedButton for 'Sign in'
             PrimaryButton("Sign Up",
-                onPressed: () => Navigator.pushNamed(context, '/home')),
+                onPressed: () {
+                  Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => RegisterPage()),
+                    );
+                } ),
             const SizedBox(height: 20.0),
 
             // Text for 'G Sign in with Google'
