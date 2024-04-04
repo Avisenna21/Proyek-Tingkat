@@ -4,6 +4,9 @@ import 'package:job_dream/app/modules/auth/register/views/register_page.dart';
 import 'package:job_dream/app/modules/auth/util/views/forgot_password_page.dart';
 import 'package:job_dream/app/widgets/primary_button.dart';
 import 'package:job_dream/app/widgets/secondary_button.dart';
+import 'package:logger/logger.dart';
+import 'package:job_dream/app/modules/auth/controller/auth_controller.dart';
+import 'package:job_dream/app/modules/home/views/home_page.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -11,6 +14,45 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+
+  final Logger logger = Logger();
+  late final AuthController loginService;
+
+  @override
+  void initState() {
+    super.initState();
+    loginService = AuthController();
+  }
+
+  void _login() async {
+    final String email = _emailController.text;
+    final String password = _passwordController.text;
+
+    final isSignedIn = (await loginService.signInWithEmailAndPassword(
+      email,
+      password,
+    ));
+
+    if (isSignedIn != null) {
+      logger.i('Login successful');
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) => HomePage(),
+        ),
+      );
+    } else {
+      logger.e('Login failed');
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Login failed. Please try again.'),
+        ),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,11 +105,10 @@ class _LoginPageState extends State<LoginPage> {
             TextButton(
               onPressed: () {
                 // Navigate to the Forgot Password page
-               Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => ForgotPasswordPage()),
-                    );
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => ForgotPasswordPage()),
+                );
               },
               child: Container(
                 margin: const EdgeInsets.only(left: 250.0),
@@ -98,8 +139,7 @@ class _LoginPageState extends State<LoginPage> {
                   onTap: () {
                     Navigator.pushReplacement(
                       context,
-                      MaterialPageRoute(
-                          builder: (context) => RegisterPage()),
+                      MaterialPageRoute(builder: (context) => RegisterPage()),
                     );
                   },
                   child: const Text(
