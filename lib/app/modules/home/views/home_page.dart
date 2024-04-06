@@ -102,7 +102,7 @@ class HomePage extends StatelessWidget {
                     return Container(
                       margin: const EdgeInsets.symmetric(horizontal: 10),
                       width: 300,
-                      child: PrimaryCard(role: "UI/UX Designer", company: "AWS Company", address: "Oakland, CA"),
+                      child: PrimaryCard(role: "UI/UX Designer", company: "AWS Company", address: "Oakland, CA", picture: 'assets/img/aws.jpg'),
                     );
                   },
                 ),
@@ -140,7 +140,7 @@ class HomePage extends StatelessWidget {
                     return Container(
                       margin: const EdgeInsets.symmetric(horizontal: 10),
                       width: 300,
-                      child: PrimaryCard(role: "UI/UX Designer", company: "AWS Company", address: "Oakland, CA"),
+                      child: PrimaryCard(role: "UI/UX Designer", company: "AWS Company", address: "Oakland, CA", picture: 'assets/img/aws.jpg'),
                     );
                   },
                 ),
