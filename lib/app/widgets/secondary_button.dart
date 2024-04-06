@@ -5,7 +5,7 @@ class SecondaryButton extends StatelessWidget {
 
   final String message;
   final Function() onPressed;
-
+  
   @override
   Widget build(BuildContext context) {
     const borderColor = Color(0xFF96D8CC);

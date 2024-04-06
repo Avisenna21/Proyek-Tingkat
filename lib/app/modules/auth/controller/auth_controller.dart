@@ -28,7 +28,6 @@ class AuthController {
         email: email,
         password: password,
       );
-      // Set the username for the user
       await userCredential.user?.updateDisplayName(username);
       return userCredential.user;
     } catch (e) {
@@ -44,4 +43,22 @@ class AuthController {
       logger.e("Error signing out: $e");
     }
   }
+
+  Future<User?> loginWithGoogle() async {
+    try {
+      final GoogleAuthProvider googleProvider = GoogleAuthProvider();
+      final UserCredential userCredential =
+          await _auth.signInWithPopup(googleProvider);
+      return userCredential.user;
+    } catch (e) {
+      logger.e("Error logging in with Google: $e");
+      return null;
+    }
+  }
 }
+
+Future<User?> GetUser() async {
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  return _auth.currentUser;
+}
+

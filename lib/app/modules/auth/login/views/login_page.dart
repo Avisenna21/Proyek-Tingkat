@@ -30,10 +30,10 @@ class _LoginPageState extends State<LoginPage> {
     final String email = _emailController.text;
     final String password = _passwordController.text;
 
-    final isSignedIn = (await loginService.signInWithEmailAndPassword(
+    final isSignedIn = await loginService.signInWithEmailAndPassword(
       email,
       password,
-    ));
+    );
 
     if (isSignedIn != null) {
       logger.i('Login successful');
@@ -78,6 +78,7 @@ class _LoginPageState extends State<LoginPage> {
             SizedBox(
               width: 400, // Specify the desired width
               child: TextField(
+                controller: _emailController,
                 decoration: InputDecoration(
                   labelText: 'Enter your email',
                   border: OutlineInputBorder(
@@ -92,6 +93,7 @@ class _LoginPageState extends State<LoginPage> {
               width: 400, // Specify the desired width
               child: TextField(
                 obscureText: true,
+                controller: _passwordController,
                 decoration: InputDecoration(
                   labelText: 'Password',
                   border: OutlineInputBorder(
@@ -122,7 +124,9 @@ class _LoginPageState extends State<LoginPage> {
 
             // ElevatedButton for 'Sign in'
             PrimaryButton("Sign in",
-                onPressed: () => Navigator.pushNamed(context, '/home')),
+                onPressed: () {
+                  _login();
+                }),
             const SizedBox(height: 20.0),
 
             // Text for 'G Sign in with Google'
