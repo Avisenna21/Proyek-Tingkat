@@ -1,7 +1,7 @@
-
-import 'package:flutter/material.dart';
+  import 'package:flutter/material.dart';
 import 'package:job_dream/app/widgets/navbar.dart';
 import 'package:job_dream/app/widgets/primary_card.dart';
+import 'package:job_dream/app/widgets/secondary_card.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -17,7 +17,8 @@ class HomePage extends StatelessWidget {
                 child: Row(
                   children: [
                     const CircleAvatar(
-                      backgroundImage: NetworkImage('https://example.com/profile_picture.jpg'),
+                      backgroundImage: NetworkImage(
+                          'https://example.com/profile_picture.jpg'),
                     ),
                     const SizedBox(width: 10),
                     Expanded(
@@ -52,7 +53,8 @@ class HomePage extends StatelessWidget {
               Container(
                 margin: const EdgeInsets.symmetric(vertical: 20),
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                   child: Material(
                     elevation: 5,
                     shadowColor: Colors.black,
@@ -102,7 +104,11 @@ class HomePage extends StatelessWidget {
                     return Container(
                       margin: const EdgeInsets.symmetric(horizontal: 10),
                       width: 300,
-                      child: PrimaryCard(role: "UI/UX Designer", company: "AWS Company", address: "Oakland, CA", picture: 'assets/img/aws.jpg'),
+                      child: PrimaryCard(
+                          role: "UI/UX Designer",
+                          company: "AWS Company",
+                          address: "Oakland, CA",
+                          picture: 'assets/img/aws.png'),
                     );
                   },
                 ),
@@ -140,7 +146,12 @@ class HomePage extends StatelessWidget {
                     return Container(
                       margin: const EdgeInsets.symmetric(horizontal: 10),
                       width: 300,
-                      child: PrimaryCard(role: "UI/UX Designer", company: "AWS Company", address: "Oakland, CA", picture: 'assets/img/aws.jpg'),
+                      child: SecondaryCard(
+                        title: "UI/UX Designer",
+                        subTitle: "AWS Company",
+                        image: 'assets/img/aws.png',
+                        rating: "4.8",
+                      ),
                     );
                   },
                 ),
