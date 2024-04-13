@@ -38,6 +38,7 @@ class CommunityPage extends StatelessWidget {
       body: SafeArea(
         child: CustomScrollView(
           slivers: [
+            
             SliverToBoxAdapter(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
