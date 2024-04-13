@@ -1,13 +1,6 @@
 import 'package:flutter/material.dart';
-
-class Course {
-  final String title;
-  final String subtitle;
-  final String imagePath;
-
-  const Course(
-      {required this.title, required this.subtitle, required this.imagePath});
-}
+import 'package:job_dream/app/modules/community/constant/courses.dart';
+import 'package:job_dream/app/modules/community/model/Course.dart';
 
 class CourseTile extends StatelessWidget {
   final Course course;
@@ -37,32 +30,6 @@ class CourseTile extends StatelessWidget {
 }
 
 class CommunityPage extends StatelessWidget {
-  final courses = [
-    const Course(
-        title: "Database Design &\nProgramming with SQL",
-        subtitle: "Online",
-        imagePath: "assets/img/oracle.png"),
-    const Course(
-        title: "Azure for Beginner: Azure \nFundamentals",
-        subtitle: "Online",
-        imagePath: "assets/img/azure.png"),
-    const Course(
-        title: "5G Technology for \nBeginner",
-        subtitle: "Online",
-        imagePath: "assets/img/5g.png"),
-    const Course(
-        title: "Big Data Using Python",
-        subtitle: "Online",
-        imagePath: "assets/img/bigdata.png"),
-    const Course(
-        title: "5G Technology for \nBeginner",
-        subtitle: "Online",
-        imagePath: "assets/img/aiforjuniordev.png"),
-    const Course(
-        title: "CCNA Networking \nEngineer",
-        subtitle: "Online",
-        imagePath: "assets/img/ccna.png"),
-  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
