@@ -75,6 +75,13 @@ flutter:
     - assets/img/email.png
     - assets/img/aws.png
     - assets/img/skills.png
+    - assets/img/azure.png
+    - assets/img/5g.png
+    - assets/img/bigdata.png
+    - assets/img/ccna.png
+    - assets/img/aiforjuniordev.png
+    - assets/img/oracle.png
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
