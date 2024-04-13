@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:job_dream/app/modules/favourite/views/favourite_page.dart';
 import 'package:job_dream/app/modules/home/views/home_page.dart';
 import 'package:job_dream/app/modules/profile/views/profile_page.dart';
+import 'package:job_dream/app/modules/community/views/community_page.dart';
+
 class NavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -37,7 +39,11 @@ class NavBar extends StatelessWidget {
             IconButton(
               icon: const Icon(Icons.groups_2, color: Color(0xFF38A692)), 
               onPressed: () {
-                // Tambahkan aksi untuk navigasi ke halaman notifikasi
+                Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => CommunityPage()),
+                    );
               },
             ),
             IconButton(

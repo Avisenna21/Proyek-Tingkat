@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:job_dream/app/modules/community/constant/courses.dart';
 import 'package:job_dream/app/modules/community/model/Course.dart';
+import 'package:job_dream/app/widgets/navbar.dart';
 
 class CourseTile extends StatelessWidget {
   final Course course;
@@ -33,6 +34,7 @@ class CommunityPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: NavBar(),
       body: SafeArea(
         child: CustomScrollView(
           slivers: [
