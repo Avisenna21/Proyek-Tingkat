@@ -58,6 +58,10 @@ class CommunityPage extends StatelessWidget {
         title: "5G Technology for \nBeginner",
         subtitle: "Online",
         imagePath: "assets/img/aiforjuniordev.png"),
+    const Course(
+        title: "CCNA Networking \nEngineer",
+        subtitle: "Online",
+        imagePath: "assets/img/ccna.png"),
   ];
   @override
   Widget build(BuildContext context) {
