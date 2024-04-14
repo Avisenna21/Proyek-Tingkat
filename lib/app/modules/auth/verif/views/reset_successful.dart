@@ -27,7 +27,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
           const SizedBox(height: 40.0),
           Center(
             child: Image.asset(
-              'img/success.png', // Replace with the path to your image
+              'assets/img/success.png', // Replace with the path to your image
               width: 200, // Specify the desired width
               height: 200, // Specify the desired height
             ),

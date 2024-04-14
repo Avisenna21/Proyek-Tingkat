@@ -1,9 +1,21 @@
-  import 'package:flutter/material.dart';
+import 'dart:async';
+
+import 'package:flutter/material.dart';
 import 'package:job_dream/app/widgets/navbar.dart';
 import 'package:job_dream/app/widgets/primary_card.dart';
 import 'package:job_dream/app/widgets/secondary_card.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget{
+  @override
+  _HomePageState createState() => _HomePageState();
+
+}
+
+final User user = FirebaseAuth.instance.currentUser!;
+
+
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,40 +27,43 @@ class HomePage extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Row(
-                  children: [
-                    const CircleAvatar(
-                      backgroundImage: NetworkImage(
-                          'https://example.com/profile_picture.jpg'),
+                    children: [
+                    CircleAvatar(
+                      backgroundImage: user.photoURL != null
+                      ? NetworkImage(user.photoURL!) as ImageProvider<Object>?
+                      : const AssetImage('assets/img/placeholder.png'),
+                      backgroundColor: user.photoURL != null ? null : Colors.grey,
                     ),
                     const SizedBox(width: 10),
                     Expanded(
-                      child: RichText(
-                        text: const TextSpan(
-                          text: 'Welcome back\n',
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.normal,
-                          ),
-                          children: [
-                            TextSpan(
-                              text: 'username',
-                              style: TextStyle(
-                                fontSize: 24,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ],
+                      child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                        'Welcome back',
+                        style: const TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.normal,
                         ),
+                        ),
+                        Text(
+                        user.displayName ?? '',
+                        style: const TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        ),
+                      ],
                       ),
                     ),
                     IconButton(
                       icon: const Icon(Icons.notifications),
                       onPressed: () {
-                        // Handle notification icon press
+                      // Handle notification icon press
                       },
                     ),
-                  ],
-                ),
+                    ],
+                  ),
               ),
               Container(
                 margin: const EdgeInsets.symmetric(vertical: 20),
@@ -104,7 +119,7 @@ class HomePage extends StatelessWidget {
                     return Container(
                       margin: const EdgeInsets.symmetric(horizontal: 10),
                       width: 300,
-                      child: PrimaryCard(
+                      child: const PrimaryCard(
                           role: "UI/UX Designer",
                           company: "AWS Company",
                           address: "Oakland, CA",

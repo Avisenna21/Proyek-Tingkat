@@ -66,9 +66,9 @@ class _RegisterPageState extends State<RegisterPage> {
           child: Column(
             children: [
               Image.asset(
-                'img/sky.png', // Replace with the path to your image
-                width: 100, // Specify the desired width
-                height: 100, // Specify the desired height
+                'assets/img/sky.png', 
+                width: 100, 
+                height: 100, 
               ),
               const SizedBox(height: 20.0),
               const Text("Create an Account",

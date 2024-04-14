@@ -14,7 +14,7 @@ class SecondaryButton extends StatelessWidget {
       padding: const EdgeInsets.only(top: 10.0),
       child: OutlinedButton(
         style: ButtonStyle(
-          minimumSize: MaterialStateProperty.all(Size(400, 60)),
+          minimumSize: MaterialStateProperty.all(Size(350, 60)),
           foregroundColor: MaterialStateProperty.all(borderColor),
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(

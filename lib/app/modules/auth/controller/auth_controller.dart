@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:logger/logger.dart';
 
 class AuthController {
@@ -55,10 +58,18 @@ class AuthController {
       return null;
     }
   }
-}
 
-Future<User?> GetUser() async {
-  final FirebaseAuth _auth = FirebaseAuth.instance;
-  return _auth.currentUser;
+  Future<String?> uploadProfilePicture(String path) async {
+    try {
+      final String userId = _auth.currentUser!.uid;
+      final Reference ref = FirebaseStorage.instance.ref().child('profile_pictures/$userId');
+      final UploadTask uploadTask = ref.putFile(File(path));
+      final TaskSnapshot taskSnapshot = await uploadTask.whenComplete(() => null);
+      final String url = await taskSnapshot.ref.getDownloadURL();
+      return url;
+    } catch (e) {
+      logger.e("Error uploading profile picture: $e");
+      return null;
+    }
+  }
 }
-

@@ -1,7 +1,7 @@
 // Import libraries
 import 'package:flutter/material.dart';
 import 'package:job_dream/app/modules/auth/register/views/register_page.dart';
-import 'package:job_dream/app/modules/auth/util/views/forgot_password_page.dart';
+import 'package:job_dream/app/modules/auth/verif/views/forgot_password_page.dart';
 import 'package:job_dream/app/widgets/primary_button.dart';
 import 'package:job_dream/app/widgets/secondary_button.dart';
 import 'package:logger/logger.dart';
@@ -61,9 +61,9 @@ class _LoginPageState extends State<LoginPage> {
         child: Column(
           children: [
             Image.asset(
-              'img/sky.png', // Replace with the path to your image
-              width: 100, // Specify the desired width
-              height: 100, // Specify the desired height
+              'assets/img/sky.png', 
+              width: 100, 
+              height: 100, 
             ),
             const SizedBox(height: 20.0),
             const Text("Log in to your account",
@@ -76,7 +76,7 @@ class _LoginPageState extends State<LoginPage> {
 
             // Textfield for email
             SizedBox(
-              width: 400, // Specify the desired width
+              width: 350, // Specify the desired width
               child: TextField(
                 controller: _emailController,
                 decoration: InputDecoration(
@@ -90,7 +90,7 @@ class _LoginPageState extends State<LoginPage> {
             const SizedBox(height: 15.0),
 
             SizedBox(
-              width: 400, // Specify the desired width
+              width: 350, // Specify the desired width
               child: TextField(
                 obscureText: true,
                 controller: _passwordController,

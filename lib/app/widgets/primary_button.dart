@@ -14,7 +14,7 @@ class PrimaryButton extends StatelessWidget {
       padding: const EdgeInsets.only(top: 10.0),
       child: ElevatedButton(
         style: ButtonStyle(
-          minimumSize: MaterialStateProperty.all(Size(400, 60)),
+          minimumSize: MaterialStateProperty.all(Size(350, 60)),
           foregroundColor: MaterialStateProperty.all(Colors.white),
           backgroundColor: MaterialStateProperty.all(primaryButtonColor),
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
